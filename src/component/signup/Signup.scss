@@ -1,0 +1,146 @@
+.signup-form {
+  text-align: center;
+  padding: 10px 0;
+  width: 350px;
+  margin: 0 auto;
+
+  .login-area {
+    .logo {
+      width: 180px;
+      height: 120px;
+      margin: 0 auto;
+      margin-top: -10px;
+    }
+
+    h2 {
+      font-size: 14px;
+      color: var(--insta-txt-secondary-color);
+      font-weight: 500;
+      width: 270px;
+      padding: 10px 0;
+    }
+
+    .login-with-fb-btn {
+      background-color: var(--insta-secondary-color);
+      padding: 5px 8px;
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 500;
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      // margin: 15px 0;
+      font-size: 12px;
+
+      svg {
+        font-size: 22px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      input {
+        padding: 9px 0 7px 8px;
+        // outline: none;
+        background-color: #fafafa;
+        border: var(--insta-border);
+        color: rgb(0, 0, 0);
+        border-radius: 2px;
+        font-size: 11px;
+      }
+
+      p {
+        font-size: 11px;
+        color: var(--insta-txt-secondary-color);
+        margin-bottom: 5px;
+
+        a {
+          color: rgb(0, 55, 107);
+        }
+      }
+
+      .login-btn {
+        padding: 5px 8px;
+        outline: none;
+        border: none;
+        background-color: var(--insta-primary-color);
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        // margin: 10px 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    .devider {
+      padding: 10px;
+      position: relative;
+      font-size: 14px;
+      color: rgb(115, 115, 115);
+
+      &::before {
+        content: "";
+        height: 1px;
+        width: 39%;
+        display: block;
+        background: #ccd0da;
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+
+      &::after {
+        content: "";
+        height: 1px;
+        width: 39%;
+        display: block;
+        background: #ccd0da;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+
+    .forgot-password {
+      padding-bottom: 5px;
+      a {
+        font-size: 11px;
+        color: rgb(0, 55, 107);
+      }
+    }
+  }
+  .signup-area {
+    margin: 10px 0;
+
+    p {
+      font-size: 13px;
+      padding: 10px 0;
+    }
+    a {
+      font-weight: 600;
+      color: var(--insta-secondary-color);
+    }
+  }
+
+  .get-app-area {
+    width: 350px;
+    p {
+      font-size: 13px;
+      padding: 10px 0;
+    }
+    .app-img {
+      margin-top: 5px;
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,152 @@
+.container {
+  height: 100vh;
+  // width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    width: 780px;
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    // border: 2px solid red;
+
+    .left {
+      //   flex: 1;
+    }
+
+    .right {
+      margin-top: 15px;
+      //   width: 350px;
+      //   flex: 1;
+
+      .login-form {
+        // text-align: center;
+
+        text-align: center;
+        padding: 10px 0;
+        width: 350px;
+        margin: 0px auto;
+
+        .login-area {
+          .logo {
+            width: 180px;
+            height: 120px;
+            margin: 0 auto;
+            margin-top: -10px;
+          }
+
+          form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input {
+              padding: 9px 0 7px 8px;
+              // outline: none;
+              background-color: #fafafa;
+              border: var(--insta-border);
+              color: rgb(0, 0, 0);
+              border-radius: 2px;
+              font-size: 11px;
+            }
+
+            .login-btn {
+              padding: 5px 8px;
+              outline: none;
+              border: none;
+              background-color: var(--insta-primary-color);
+              border-radius: 10px;
+              color: #fff;
+              font-weight: 600;
+              margin: 5px 0;
+            }
+          }
+
+          .devider {
+            padding: 10px;
+            position: relative;
+            font-size: 14px;
+            color: rgb(115, 115, 115);
+
+            &::before {
+              content: "";
+              height: 1px;
+              width: 39%;
+              display: block;
+              background: #ccd0da;
+              position: absolute;
+              left: 0;
+              top: 50%;
+            }
+
+            &::after {
+              content: "";
+              height: 1px;
+              width: 39%;
+              display: block;
+              background: #ccd0da;
+              position: absolute;
+              right: 0;
+              top: 50%;
+            }
+          }
+          .login-with-fb {
+            a {
+              color: #3e5185;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 10px;
+              margin: 15px 0;
+
+              svg {
+                font-size: 22px;
+              }
+              span {
+                font-size: 14px;
+                font-weight: 500;
+                //   letter-spacing: 0.6px;
+              }
+            }
+          }
+          .forgot-password {
+            padding-bottom: 5px;
+            a {
+              font-size: 11px;
+              color: rgb(0, 55, 107);
+            }
+          }
+        }
+        .signup-area {
+          margin: 10px 0;
+
+          p {
+            font-size: 13px;
+            padding: 10px 0;
+          }
+          a {
+            font-weight: 600;
+            color: var(--insta-secondary-color);
+          }
+        }
+
+        .get-app-area {
+          width: 350px;
+          p {
+            font-size: 13px;
+            padding: 10px 0;
+          }
+          .app-img {
+            margin-top: 5px;
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
