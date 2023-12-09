@@ -38,6 +38,14 @@ const Signup = () => {
       createToast("Invalid email address or mobile");
     } else {
       createToast("Data stable", "success");
+
+      // clear form
+      setInput({
+        moe: "",
+        fullname: "",
+        username: "",
+        password: "",
+      });
     }
   };
 
