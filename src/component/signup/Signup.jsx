@@ -34,12 +34,10 @@ const Signup = () => {
 
     if (!input.fullname || !input.moe || !input.username || !input.password) {
       createToast("All fields are required");
-      return;
     } else if (!isValidEmail(input.moe) && !isValidMobile(input.moe)) {
       createToast("Invalid email address or mobile");
-      return;
     } else {
-      createToast("Form submitted", "success");
+      createToast("Data stable", "success");
     }
   };
 

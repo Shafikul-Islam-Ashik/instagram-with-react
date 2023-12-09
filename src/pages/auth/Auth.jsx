@@ -33,11 +33,8 @@ const Auth = () => {
 
     if (!input.moe || !input.password) {
       createToast("All fields are required");
-      return;
-    }
-    if (!isValidEmail(input.moe) && !isValidMobile(input.moe)) {
+    } else if (!isValidEmail(input.moe) && !isValidMobile(input.moe)) {
       createToast("Invalid email address or mobile");
-      return;
     } else {
       createToast("Data stable", "success");
     }
