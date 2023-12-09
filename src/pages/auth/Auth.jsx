@@ -6,8 +6,43 @@ import Card from "../../component/card/Card";
 
 import { BiLogoFacebookSquare } from "react-icons/bi";
 import Footer from "../../footer/Footer";
+import { useState } from "react";
+import {
+  createToast,
+  isValidEmail,
+  isValidMobile,
+} from "../../helpers/helpers";
 
 const Auth = () => {
+  const [input, setInput] = useState({
+    moe: "",
+    password: "",
+  });
+
+  // handle input
+  const handleInput = (e) => {
+    setInput((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  // handle loginform
+  const handleLoginForm = (e) => {
+    e.preventDefault();
+
+    if (!input.moe || !input.password) {
+      createToast("All fields are required");
+      return;
+    }
+    if (!isValidEmail(input.moe) && !isValidMobile(input.moe)) {
+      createToast("Invalid email address or mobile");
+      return;
+    } else {
+      createToast("Data stable", "success");
+    }
+  };
+
   return (
     <>
       <Insta title="Instagram" />
@@ -32,13 +67,24 @@ const Auth = () => {
                     />
                   </div>
 
-                  <form action="">
+                  <form onSubmit={handleLoginForm}>
                     <input
                       type="text"
                       placeholder="Phone number, username, email address"
+                      name="moe"
+                      value={input.moe}
+                      onChange={handleInput}
                     />
-                    <input type="text" placeholder="Password" />
-                    <button className="login-btn">Log in</button>
+                    <input
+                      type="text"
+                      placeholder="Password"
+                      name="password"
+                      value={input.password}
+                      onChange={handleInput}
+                    />
+                    <button type="submit" className="login-btn">
+                      Log in
+                    </button>
                   </form>
 
                   <div className="devider">OR</div>
@@ -57,7 +103,7 @@ const Auth = () => {
               <div className="signup-area">
                 <Card>
                   <p>
-                    Don't have an account? <Link to="/signup">Sign up</Link>
+                    Dont have an account? <Link to="/signup">Sign up</Link>
                   </p>
                 </Card>
               </div>

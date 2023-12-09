@@ -1,19 +1,55 @@
-import Card from "../../component/card/Card";
 import { BiLogoFacebookSquare } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 import "./Signup.scss";
 import Footer from "../../footer/Footer";
 import Insta from "../insta/Insta";
+import Card from "../card/Card";
+import { useState } from "react";
+import {
+  createToast,
+  isValidEmail,
+  isValidMobile,
+} from "../../helpers/helpers";
 
 const Signup = () => {
+  const [input, setInput] = useState({
+    moe: "",
+    fullname: "",
+    username: "",
+    password: "",
+  });
+
+  // handle input
+  const handleInput = (e) => {
+    setInput((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  // handleSignup
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    if (!input.fullname || !input.moe || !input.username || !input.password) {
+      createToast("All fields are required");
+      return;
+    } else if (!isValidEmail(input.moe) && !isValidMobile(input.moe)) {
+      createToast("Invalid email address or mobile");
+      return;
+    } else {
+      createToast("Form submitted", "success");
+    }
+  };
+
   return (
     <>
       <Insta title="Instagram sign up" />
 
       <div className="signup-form">
         <Card>
-          <div className="login-area">
+          <div className="signup-area">
             <div className="logo">
               <img
                 src="https://assets.turbologo.com/blog/en/2019/09/19084953/instagram-logo-illustration.png"
@@ -32,11 +68,35 @@ const Signup = () => {
             <div className="devider">OR</div>
 
             {/* signup form */}
-            <form action="">
-              <input type="text" placeholder="Mobile number or email address" />
-              <input type="text" placeholder="Full Name" />
-              <input type="text" placeholder="Username" />
-              <input type="text" placeholder="Password" />
+            <form onSubmit={handleSignup}>
+              <input
+                type="text"
+                placeholder="Mobile number or email address"
+                name="moe"
+                value={input.moe}
+                onChange={handleInput}
+              />
+              <input
+                type="text"
+                placeholder="Full Name"
+                name="fullname"
+                value={input.fullname}
+                onChange={handleInput}
+              />
+              <input
+                type="text"
+                placeholder="Username"
+                name="username"
+                value={input.username}
+                onChange={handleInput}
+              />
+              <input
+                type="text"
+                placeholder="Password"
+                name="password"
+                value={input.password}
+                onChange={handleInput}
+              />
 
               <p>
                 People who use our service may have uploaded your contact
@@ -48,11 +108,13 @@ const Signup = () => {
                 <Link to="">Terms, Privacy Policy and Cookies Policy.</Link>
               </p>
 
-              <button className="login-btn">Sign up</button>
+              <button type="submit" className="signup-btn">
+                Sign up
+              </button>
             </form>
           </div>
         </Card>
-        <div className="signup-area">
+        <div className="login-area">
           <Card>
             <p>
               Have an account? <Link to="/">Log in</Link>
